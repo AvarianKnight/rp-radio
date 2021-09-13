@@ -1,5 +1,5 @@
 local Radio = {
-	Has = false,
+	Has = true,
 	Open = false,
 	On = false,
 	Enabled = true,
