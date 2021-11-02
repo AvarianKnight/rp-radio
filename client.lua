@@ -23,8 +23,8 @@ local Radio = {
 	Clicks = true, -- Radio clicks
 }
 Radio.Labels = {        
-	{ "FRZL_RADIO_HELP", "~s~" .. (radioConfig.Controls.Secondary.Enabled and "~" .. radioConfig.Controls.Secondary.Name .. "~ + ~" .. radioConfig.Controls.Activator.Name .. "~" or "~" .. radioConfig.Controls.Activator.Name .. "~") .. " to hide.~n~~" .. radioConfig.Controls.Toggle.Name .. "~ Radio ~g~on~s~.~n~~" .. radioConfig.Controls.Decrease.Name .. "~ ou ~" .. radioConfig.Controls.Increase.Name .. "~ pour changer de fréquence~n~~" .. radioConfig.Controls.Input.Name .. "~ pour choisir la fréquence~n~~" .. radioConfig.Controls.ToggleClicks.Name .. "~ to ~a~ mic clicks~n~Frequency: ~1~ MHz" },
-	{ "FRZL_RADIO_HELP2", "~s~" .. (radioConfig.Controls.Secondary.Enabled and "~" .. radioConfig.Controls.Secondary.Name .. "~ + ~" .. radioConfig.Controls.Activator.Name .. "~" or "~" .. radioConfig.Controls.Activator.Name .. "~") .. " to hide.~n~~" .. radioConfig.Controls.Toggle.Name .. "~ Radio ~r~off~s~.~n~~" .. radioConfig.Controls.Broadcast.Name .. "~ Fréquence de diffusion: ~1~ MHz" },
+	{ "FRZL_RADIO_HELP", "~s~" .. (radioConfig.Controls.Secondary.Enabled and "~" .. radioConfig.Controls.Secondary.Name .. "~ + ~" .. radioConfig.Controls.Activator.Name .. "~" or "~" .. radioConfig.Controls.Activator.Name .. "~") .. " cacher.~n~~" .. radioConfig.Controls.Toggle.Name .. "~ Radio ~g~on~s~.~n~~" .. radioConfig.Controls.Decrease.Name .. "~ ou ~" .. radioConfig.Controls.Increase.Name .. "~ pour changer de fréquence~n~~" .. radioConfig.Controls.Input.Name .. "~ pour choisir la fréquence~n~~" .. radioConfig.Controls.ToggleClicks.Name .. "~ to ~a~ mic clicks~n~Frequency: ~1~ MHz" },
+	{ "FRZL_RADIO_HELP2", "~s~" .. (radioConfig.Controls.Secondary.Enabled and "~" .. radioConfig.Controls.Secondary.Name .. "~ + ~" .. radioConfig.Controls.Activator.Name .. "~" or "~" .. radioConfig.Controls.Activator.Name .. "~") .. " cacher.~n~~" .. radioConfig.Controls.Toggle.Name .. "~ Radio ~r~off~s~.~n~~" .. radioConfig.Controls.Broadcast.Name .. "~ Fréquence de diffusion: ~1~ MHz" },
 	{ "FRZL_RADIO_INPUT", "Entré la fréquence" },
 }
 local unarmed = GetHashKey('weapon_unarmed')
@@ -32,7 +32,7 @@ Radio.Commands = {
 	{
 		Enabled = true, -- Add a command to be able to open/close the radio
 		Name = "radio", -- Command name
-		Help = "Toggle hand radio", -- Command help shown in chatbox when typing the command
+		Help = "Sortir la Radio", -- Command help shown in chatbox when typing the command
 		Params = {},
 		Handler = function(src, args, raw)
 			local playerPed = PlayerPedId()
@@ -54,9 +54,9 @@ Radio.Commands = {
 	{
 		Enabled = true, -- Add a command to choose radio frequency
 		Name = "frequency", -- Command name
-		Help = "Change radio frequency", -- Command help shown in chatbox when typing the command
+		Help = "Changer la fréquence", -- Command help shown in chatbox when typing the command
 		Params = {
-			{name = "number", "Enter frequency"}
+			{name = "number", "Entrer la fréquence"}
 		},
 		Handler = function(src, args, raw)
 			if Radio.Has then
@@ -510,7 +510,7 @@ Citizen.CreateThread(function()
 			BeginTextCommandDisplayHelp(Radio.Labels[Radio.On and 2 or 1][1])
 
 			if not Radio.On then
-				AddTextComponentSubstringPlayerName(Radio.Clicks and "~r~disable~w~" or "~g~enable~w~")
+				AddTextComponentSubstringPlayerName(Radio.Clicks and "~r~desactiver~w~" or "~g~activer~w~")
 			end
 
 			AddTextComponentInteger(radioConfig.Frequency.Current)
