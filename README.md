@@ -1,3 +1,5 @@
+Deprecated you should use [pma-radio](https://github.com/AvarianKnight/pma-radio/) instead.
+
 # rp-radio
 All credits go to Frazzle for making this, this is just an adapted version for pma-voice.
 
